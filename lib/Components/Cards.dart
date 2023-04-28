@@ -25,32 +25,36 @@ class Cards extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(width: 2,color: Colors.white)
             ),
-            child: ElevatedButton(
-              onPressed: (){},
+            child: IgnorePointer(
+              ignoring: true,
+              child: ElevatedButton(
+                onPressed:(){
 
-              style: ElevatedButton.styleFrom(
+                },
+                style: ElevatedButton.styleFrom(
 
-                primary: Colors.white, //background color
-                onPrimary: Colors.black,//text color
-                    onSurface: Colors.orange,
-                    shadowColor: blue,
-                elevation: 5
+                  primary: Colors.white, //background color
+                  onPrimary: Colors.black,//text color
+                      onSurface: Colors.orange,
+                      shadowColor: blue,
+                  elevation: 5
+                  ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset('$imageUrl',fit:BoxFit.contain,width: 64,height: 64,),
+                    SizedBox(
+                      height: 0,
+                    ),
+                    Text('$title',
+                          softWrap: true,
+                          maxLines: 2,
+                          style: smallFontStyle,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
                 ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SvgPicture.asset('$imageUrl',fit:BoxFit.contain,width: 64,height: 64,),
-                  SizedBox(
-                    height: 0,
-                  ),
-                  Text('$title',
-                        softWrap: true,
-                        maxLines: 2,
-                        style: smallFontStyle,
-                    textAlign: TextAlign.center,
-                  ),
-                ],
               ),
             ),
       ),

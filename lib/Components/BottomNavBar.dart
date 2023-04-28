@@ -37,15 +37,11 @@ class _BottomNavBarState extends State<BottomNavBar>with TickerProviderStateMixi
         foregroundColor: Colors.white,
         actions:const [
           Icon(Icons.add_ic_call_sharp),
-
            Padding(
             padding: EdgeInsets.fromLTRB(10,0,20,0),
             child: Icon(Icons.notifications),
           ),
-
         ],
-
-
       ),
       body: screens[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
