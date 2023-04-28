@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
 
 import '../../Colors.dart';
+import '../../Components/DefaultTextField.dart';
 
 class AddStudent extends StatefulWidget {
   const AddStudent({Key? key}) : super(key: key);
@@ -23,7 +24,7 @@ class _AddStudentState extends State<AddStudent> {
 
       ),
       body: Container(
-        color: Colors.deepPurpleAccent.shade100.withOpacity(0.2),
+        color: Colors.blue.shade50.withOpacity(0.4),
         width: double.infinity,
         height: double.infinity,
         child: BackdropFilter(
@@ -47,6 +48,9 @@ class AddStudentForm extends StatefulWidget {
 class _AddStudentFormState extends State<AddStudentForm> {
 
   final _formkey = GlobalKey<FormState>();
+  _goToStudentList(){
+    Navigator.of(context).pushNamed('/Student_List');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,42 +59,68 @@ class _AddStudentFormState extends State<AddStudentForm> {
       child: Form(
         key: _formkey,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            TextFormField(
-              decoration: const InputDecoration(
-                hintText: 'Input Student Id',
-                labelText: 'Student Id',
-                fillColor: Colors.blue,
-              ),
+
+            Text('Student ID',style: TextStyle(fontSize: 16),),
+            SizedBox(height: 10,),
+            DefaultTextField(hintText: 'Student ID'),
+            SizedBox(height: 15,),
+            Text('Student Full Name',style: TextStyle(fontSize: 16),),
+            SizedBox(height: 10,),
+            DefaultTextField(hintText: 'Student Full Name'),
+            SizedBox(height: 15,),
+            Text('Batch Name',style: TextStyle(fontSize: 16),),
+            SizedBox(height: 10,),
+            DefaultTextField(hintText: 'Batch Name'),
+            SizedBox(height: 15,),
+            Text('Contact Number',style: TextStyle(fontSize: 16),),
+            SizedBox(height: 10,),
+            DefaultTextField(hintText: 'Contact Number'),
+            SizedBox(height: 15,),
+            Text('D.O.B',style: TextStyle(fontSize: 16),),
+            SizedBox(height: 10,),
+            DefaultTextField(hintText: 'DOB'),
+            SizedBox(height: 15,),
+            ElevatedButton(onPressed: (){}, child: Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Text('Submit',style: TextStyle(fontSize: 18),),
+            )),
+            SizedBox(
+              height: 10,
             ),
-            TextFormField(
-              decoration: const InputDecoration(
-                hintText: 'Enter Student Name',
-                labelText: 'Student Name',
-                fillColor: Colors.blue,
-              ),
+            ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: green,
+                ),
+                onPressed: (){ _goToStudentList();},
+                child: Text("Show Students" ,style: TextStyle(fontSize: 16),)
             ),
-            TextFormField(
-              decoration: const InputDecoration(
-                hintText: 'YY/MM/DD',
-                labelText: 'Date of Birth',
-                fillColor: Colors.blue,
-              ),
+            SizedBox(height: 15,),
+            Divider(),
+            SizedBox(height: 10,),
+            Center(
+              child: Text('OR',style: TextStyle(fontSize: 18),),
             ),
-            TextFormField(
-              decoration: const InputDecoration(
-                hintText: 'Enter Phone Number',
-                labelText: 'Phone Number',
-                fillColor: Colors.blue,
+            SizedBox(height: 10,),
+            Center(
+              child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: blue,
+                    
+                  ),
+                  onPressed: (){ },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0,0,10,0),
+                        child: Icon(Icons.insert_drive_file_rounded),
+                      ),
+                      Text("Upload Via CSV file" ,style: TextStyle(fontSize: 16),),
+                    ],
+                  )
               ),
-            ),
-            Container(
-                padding: const EdgeInsets.only(left: 190.0, top: 40.0),
-                child: const ElevatedButton(
-                  child: Text('Submit'),
-                  onPressed: null,
-                )
             ),
           ],
         ),
@@ -98,3 +128,4 @@ class _AddStudentFormState extends State<AddStudentForm> {
     );
   }
 }
+

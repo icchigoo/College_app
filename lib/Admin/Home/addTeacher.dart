@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
 
 import '../../Colors.dart';
+import '../../Components/DefaultTextField.dart';
 
 class AddTeacher extends StatefulWidget {
   const AddTeacher({Key? key}) : super(key: key);
@@ -13,6 +14,9 @@ class AddTeacher extends StatefulWidget {
 }
 
 class _AddTeacherState extends State<AddTeacher> {
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,10 +24,9 @@ class _AddTeacherState extends State<AddTeacher> {
         title: Text('E-ACADEMIA',style: TextStyle(fontFamily: 'Aerial',color: white),),
         backgroundColor: blue,
         elevation: 0,
-
       ),
       body: Container(
-        color: Colors.deepPurpleAccent.shade100.withOpacity(0.2),
+        color: Colors.blue.shade50.withOpacity(0.4),
         width: double.infinity,
         height: double.infinity,
         child: BackdropFilter(
@@ -45,6 +48,9 @@ class AddTeacherForm extends StatefulWidget {
 }
 
 class _AddTeacherFormState extends State<AddTeacherForm> {
+  _goToTeacherList(){
+    Navigator.of(context).pushNamed('/Teacher_List');
+  }
 
   final _formkey = GlobalKey<FormState>();
 
@@ -55,39 +61,48 @@ class _AddTeacherFormState extends State<AddTeacherForm> {
       child: Form(
         key: _formkey,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            TextFormField(
-              decoration: const InputDecoration(
-                hintText: 'Enter Teacher Id',
-                labelText: 'Teacher Id',
-                fillColor: Colors.blue,
-              ),
+            Text('Teacher ID',style: TextStyle(fontSize: 16),),
+            SizedBox(height: 10,),
+            DefaultTextField(hintText: 'Teacher ID'),
+            SizedBox(height: 15,),
+            Text('Teacher Name',style: TextStyle(fontSize: 16),),
+            SizedBox(height: 10,),
+            DefaultTextField(hintText: 'Teacher Name'),
+            SizedBox(height: 15,),
+            Text('Subject Assigned',style: TextStyle(fontSize: 16),),
+            SizedBox(height: 10,),
+            DefaultTextField(hintText: 'Subject 1 Name'),
+            SizedBox(height: 15,),
+            Text('Contact Number',style: TextStyle(fontSize: 16),),
+            SizedBox(height: 10,),
+            DefaultTextField(hintText: 'Contact Number'),
+            SizedBox(height: 15,),
+            Text('D.O.B',style: TextStyle(fontSize: 16),),
+            SizedBox(height: 10,),
+            DefaultTextField(hintText: 'DOB'),
+            SizedBox(height: 15,),
+            ElevatedButton(onPressed: (){}, child: Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Text('Submit',style: TextStyle(fontSize: 18),),
+            )),
+            SizedBox(
+              height: 10,
             ),
-            TextFormField(
-              decoration: const InputDecoration(
-                hintText: 'Enter Teacher Name',
-                labelText: 'Teacher Name',
-                fillColor: Colors.blue,
-              ),
+            ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: green,
+                ),
+                onPressed: (){ _goToTeacherList();},
+                child: Text("Show All Teacher" ,style: TextStyle(fontSize: 16),)
             ),
-            TextFormField(
-              decoration: const InputDecoration(
-                hintText: 'Enter Phone Number',
-                labelText: 'Phone Number',
-                fillColor: Colors.blue,
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.only(left: 190.0, top: 40.0),
-              child: const ElevatedButton(
-                  onPressed: null,
-                  child: Text('Submit')
-              ),
-            )
           ],
         ),
       ),
     );
   }
+
+
 }
+

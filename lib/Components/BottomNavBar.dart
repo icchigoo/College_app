@@ -21,7 +21,7 @@ class _BottomNavBarState extends State<BottomNavBar>with TickerProviderStateMixi
   final screens = [
     AdminHome(),
     AdminMessages(),
-    AdminSendRequestToDeveloper(),
+    Drawer(),
     AdminSetting(),
     AdminProfile(),
   ];

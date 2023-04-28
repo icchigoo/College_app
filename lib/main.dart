@@ -1,8 +1,8 @@
 
+import 'package:college_app/RouteGenerator.dart';
 import 'package:flutter/material.dart';
 import 'Admin/AdminHome.dart';
 import 'Components/BottomNavBar.dart';
-import 'RouteGenerator.dart';
 void main() {
   runApp(MyApp());
 }
@@ -18,13 +18,12 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'E-Academia',
-      home: BottomNavBar(),
-
       initialRoute: '/',
       onGenerateRoute: RouteGenerator.generateRoute,
 
     );
   }
 }
+
 
 

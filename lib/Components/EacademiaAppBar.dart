@@ -21,3 +21,4 @@ class EacademiaAppBar extends StatelessWidget {
     );
   }
 }
+
