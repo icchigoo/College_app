@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../Colors.dart';
+import '../AdminComponents/Cards.dart';
+
 class AdminMessages extends StatefulWidget {
   const AdminMessages({Key? key}) : super(key: key);
 
@@ -11,7 +14,24 @@ class _AdminMessagesState extends State<AdminMessages> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blueGrey,
-        child: Center(child: Text("Messages",style: TextStyle(fontSize: 60),),));
+      color: lightBlue.withOpacity(0.2),
+      width: double.infinity,
+      height: double.infinity,
+      child: Wrap(
+        alignment: WrapAlignment.start,
+        children: [
+
+          GestureDetector(
+            onTap: (){Navigator.of(context).pushNamed('/Fee_Notification');},
+            child:Cards('assets/fee.svg','Fee Notification'),
+          ),
+          GestureDetector(
+            onTap: (){Navigator.of(context).pushNamed('/Event_Notification');},
+
+            child : Cards('assets/notification.svg','Event Notification'),
+          ),
+        ],
+      ),
+    );
   }
 }

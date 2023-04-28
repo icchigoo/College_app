@@ -1,9 +1,14 @@
 
 import 'package:college_app/RouteGenerator.dart';
 import 'package:flutter/material.dart';
-import 'Admin/AdminHome.dart';
-import 'Components/BottomNavBar.dart';
+import 'package:get/get.dart';
+import 'package:flutter/services.dart';
+
 void main() {
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent,
+  ));
+
   runApp(MyApp());
 }
 class MyApp extends StatefulWidget {
@@ -14,13 +19,14 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return const GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'E-Academia',
       initialRoute: '/',
       onGenerateRoute: RouteGenerator.generateRoute,
-
     );
   }
 }

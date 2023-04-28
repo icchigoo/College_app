@@ -10,6 +10,10 @@ class FeeNotification extends StatefulWidget {
 }
 
 class _FeeNotificationState extends State<FeeNotification> {
+
+  _goToNotificationList(){
+    Navigator.of(context).pushNamed('/Show_Recent_Event_Notification');
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,7 +87,16 @@ class _FeeNotificationState extends State<FeeNotification> {
             ElevatedButton(onPressed: (){},
                 child: Text('Send Message')
             ),
-
+            SizedBox(
+              height: 10,
+            ),
+            ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: green,
+                ),
+                onPressed: (){ _goToNotificationList();},
+                child: Text("Show Recently Sent Notification" ,style: TextStyle(fontSize: 16),)
+            ),
 
           ],
         ),

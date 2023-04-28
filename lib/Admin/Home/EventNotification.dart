@@ -11,6 +11,9 @@ class EventNotification extends StatefulWidget {
 
 class _EventNotificationState extends State<EventNotification> {
   @override
+  _goToEventNotificationList(){
+    Navigator.of(context).pushNamed('/Show_Recent_Notification');
+  }
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -82,6 +85,16 @@ class _EventNotificationState extends State<EventNotification> {
             ),
             ElevatedButton(onPressed: (){},
                 child: Text('Send Message')
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: green,
+                ),
+                onPressed: (){_goToEventNotificationList();},
+                child: Text("Show Recently Sent Notification" ,style: TextStyle(fontSize: 16),)
             ),
 
 
