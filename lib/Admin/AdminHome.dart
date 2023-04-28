@@ -4,6 +4,7 @@ import 'package:college_app/Components/Cards.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
 import '../Colors.dart';
+import '../Fonts.dart';
 
 
 class AdminHome extends StatefulWidget {
@@ -14,19 +15,13 @@ class AdminHome extends StatefulWidget {
 }
 
 class _AdminHomeState extends State<AdminHome> {
+
   @override
   Widget build(BuildContext context) {
     double height =MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('E-ACADEMIA',style: TextStyle(fontFamily: 'Aerial',color: white),),
-        backgroundColor: blue,
-        elevation: 0,
-
-      ),
-      body: Container(
-        color: Colors.deepPurpleAccent.shade100.withOpacity(0.2),
+    return Container(
+        color: Colors.blue.shade100,
         width: double.infinity,
         height: double.infinity,
         child: BackdropFilter(
@@ -35,26 +30,21 @@ class _AdminHomeState extends State<AdminHome> {
             sigmaY: 5.0,
           ),
           child:
-              Column(
-                children: [
-                  Wrap(
+              Wrap(
+                alignment: WrapAlignment.spaceEvenly,
+              children: [
+                Cards('assets/classroom.svg','Add Clas'),
+                Cards('assets/teacher.svg','Add Teacher'),
+                Cards('assets/student.svg','Add Student'),
+                Cards('assets/book.svg','Add Books'),
+                Cards('assets/fee.svg','Fee Notification'),
+                Cards('assets/notification.svg','Event Notification'),
 
-                  children: [
-                    Cards('classroom.svg','Add Class'),
-                    Cards('teacher.svg','Add Teacher'),
-                    Cards('student.svg','Add Student'),
-                    Cards('book.svg','Add Books'),
-                    Cards('fee.svg','Fee Notification'),
-                    Cards('notification.svg','Event Notification'),
-
-                  ],
-                  ),
-                  
-              ],),
+              ],
+              ),
 
 
         ),
-      ),
-    );
+      );
   }
 }
