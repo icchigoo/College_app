@@ -1,6 +1,6 @@
 import 'dart:ui';
-
 import 'package:college_app/Components/Cards.dart';
+
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
 import '../Colors.dart';

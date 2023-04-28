@@ -1,11 +1,10 @@
 
-import 'package:college_app/Admin/AdminMessages.dart';
-import 'package:college_app/Admin/AdminProfile.dart';
-import 'package:college_app/Admin/AdminSendRequestToDeveloper.dart';
-import 'package:college_app/Admin/AdminSetting.dart';
 import 'package:flutter/material.dart';
 import '../Admin/AdminHome.dart';
-
+import '../Admin/AdminMessages.dart';
+import '../Admin/AdminProfile.dart';
+import '../Admin/AdminSendRequestToDeveloper.dart';
+import '../Admin/AdminSetting.dart';
 import '../Colors.dart';
 import '../Fonts.dart';
 
