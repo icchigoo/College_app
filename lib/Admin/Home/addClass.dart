@@ -35,7 +35,7 @@ class _AddClassState extends State<AddClass> {
           child: AddClassForm(),
         ),
       ),
-    );;
+    );
   }
 }
 
